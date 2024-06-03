@@ -55,7 +55,7 @@
                     params['redirect'] = 'true';
                     const newUrl = setUrlParameters(params);
                     console.log(newUrl);
-                    window.open(newUrl, '_blank');
+                    window.location.href = (newUrl, '_blank');
                 } else if (params['redirect'] === 'true') {
                     // Case 3: With URL parameters and with parameter "redirect" set to true
                     redirectToAppropriatePage();
