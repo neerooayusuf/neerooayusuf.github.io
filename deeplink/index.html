@@ -17,8 +17,8 @@
         function setUrlParameters(paramsObj) {
             const params = new URLSearchParams(paramsObj).toString();
             // Manually construct the URL without adding a trailing slash
-            const basePath = window.location.origin + window.location.pathname.slice(0, -1);
-            return `${basePath}?${params}`;
+            //const basePath = window.location.origin + window.location.pathname.slice(0, -1);
+            return `${window.location.origin}${window.location.pathname.slice(0, -1)}?${params}`;
         }
 
         function isAndroid() {
