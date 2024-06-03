@@ -16,7 +16,7 @@
 
         function setUrlParameters(paramsObj) {
             const params = new URLSearchParams(paramsObj).toString();
-            return `${window.location.origin}${window.location.pathname}?${params}`;
+            return `${window.location.origin}${window.location.pathname.split('?')[0]}?${params}`;
         }
 
         function isAndroid() {
