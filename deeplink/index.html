@@ -52,72 +52,7 @@
                     // Case 2: With URL parameters but either without parameter "redirect" or with parameter "redirect" set to false
                     params['redirect'] = 'true';
                     const newUrl = setUrlParameters(params);
-                    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirector</title>
-    <script>
-        function getUrlParameters() {
-            const params = new URLSearchParams(window.location.search);
-            let paramsObj = {};
-            params.forEach((value, key) => {
-                paramsObj[key] = value;
-            });
-            return paramsObj;
-        }
-
-        function setUrlParameters(paramsObj) {
-            const params = new URLSearchParams(paramsObj).toString();
-            return `${window.location.pathname}?${params}`;
-        }
-
-        function isAndroid() {
-            return /Android/i.test(navigator.userAgent);
-        }
-
-        function isIOS() {
-            return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        }
-
-        function redirectToAppropriatePage() {
-            if (isAndroid()) {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.masociete.proxipass";
-            } else if (isIOS()) {
-                window.location.href = "https://apps.apple.com/mu/app/passpass-by-proximasoft/id1567903036";
-            } else {
-                // Fallback in case it's not Android or iOS
-                window.location.href = "https://proximasoft.com/pass-pass-mobile-apps-for-rewards/";
-            }
-        }
-
-        function main() {
-            const params = getUrlParameters();
-            console.log(params);
-            if (Object.keys(params).length === 0) {
-                // Case 1: No URL parameters
-                redirectToAppropriatePage();
-            } else {
-                if (!params.hasOwnProperty('redirect') || params['redirect'] === 'false') {
-                    // Case 2: With URL parameters but either without parameter "redirect" or with parameter "redirect" set to false
-                    params['redirect'] = 'true';
-                    const newUrl = setUrlParameters(params);
                     console.log(newUrl);
-                    window.open(newUrl, '_blank');
-                } else if (params['redirect'] === 'true') {
-                    // Case 3: With URL parameters and with parameter "redirect" set to true
-                    redirectToAppropriatePage();
-                }
-            }
-        }
-
-        window.onload = main;
-    </script>
-</head>
-<body>
-</body>
-</html>
                     window.open(newUrl, '_blank');
                 } else if (params['redirect'] === 'true') {
                     // Case 3: With URL parameters and with parameter "redirect" set to true
